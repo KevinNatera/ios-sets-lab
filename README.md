@@ -13,6 +13,25 @@ Input: heights of trees below:
 Output:
 `169.375`
 
+var heightsOfTreesBelow = [161,182,161,154,176,170,167,171,170,174]
+
+var doubleArray = heightsOfTreesBelow.map { Double($0) }
+
+var setOfHeight = Set(doubleArray)
+var averageHeight = 0.0
+var numberOfTrees = 0.0
+
+
+for height in setOfHeight {
+averageHeight += height
+numberOfTrees += 1
+}
+
+averageHeight = averageHeight/numberOfTrees
+
+
+
+print(averageHeight)
 
 ## Question 2
 
@@ -21,6 +40,18 @@ Determine if a String is a pangram. A pangram is a string that contains every le
  e.g `"The quick brown fox jumps over the lazy dog"` is a pangram
  e.g `"The quick brown fox jumped over the lazy dog"` is NOT a pangram
 
+var string = "The quick brown fox jumps over the lazy dog"
+var alphabet = Set("abcdefghijklmnopqrstuvwxyz")
+
+for char in string.lowercased() {
+alphabet.remove(char)
+}
+
+if alphabet.isEmpty {
+print("This string is a pangram")
+} else {
+print("This string is not a pangram")
+}
 
 ## Question 3
 
@@ -50,6 +81,13 @@ let arr1 = [2, 4, 5, 6, 8, 10, 12]
 let arr2 = [1, 2, 3, 4, 5, 6]
 let arr3 = [5, 6, 7, 8, 9, 10, 11, 12]
 let arr4 = [1, 3, 4, 5, 6, 7, 9]
+
+
+
+var newArray =
+Array(Set(arr1).union(Set(arr2).union(Set(arr3)).union(Set(arr4)))).sorted()
+
+print(newArray)
 ```
 
 
@@ -65,6 +103,14 @@ Perform the following set operations on the lists below:
 ```swift
 let list1: Set = [1, 3, 4, 6, 2, 7, 9]
 let list2: Set = [3, 7, 13, 10, 4]
+
+print(list1.intersection(list2))
+
+print(list1.symmetricDifference(list2))
+
+print(list1.union(list2))
+
+print(list1.subtracting(list2))
 ```
 
 
@@ -91,6 +137,7 @@ print(spaceships.count)
 - 1
 - This code will compile but crash
 
+Answer: This code will not compile.
 
 ## Question 7
 
@@ -117,3 +164,5 @@ if spaceships1.isSubset(of: spaceships2) {
 - This code will not compile
 - "This is a subset"
 - Nothing will be output
+
+Answer: This code will not compile.
