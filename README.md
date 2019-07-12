@@ -71,6 +71,28 @@ You are given an array `nums` representing the data status of the set S after th
  Input: `nums = [2,2]`
  Output: `[2,1]`
 
+var nums = [2,2]
+var dupe = 0
+var array: [Int] = []
+
+for num in nums {
+if nums[0] == 2 {
+dupe = nums[0]
+nums[0] = dupe - 1
+array = [dupe, dupe - 1]
+break
+}
+if dupe == num {
+nums[num] = dupe + 1
+array = [dupe, dupe + 1]
+}
+dupe = num
+}
+
+print(nums)
+
+print(array)
+
 
 ## Question 4
 
